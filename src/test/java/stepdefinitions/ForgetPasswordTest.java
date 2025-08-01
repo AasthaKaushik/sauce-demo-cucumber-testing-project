@@ -46,13 +46,16 @@ public class ForgetPasswordTest {
 
 	@When("In email input field, enter a valid registered email address")
 	public void in_email_input_field_enter_a_valid_registered_email_address() {
-//		PageFactory.getForgetPasswordPage().clickForgetPasswordBtn();
+		PageFactory.getForgetPasswordPage().clearEmailField();
 //		PageFactory.getLoginPage().enterUsername("dhruv.aggarwal@gmail.com");
 	}
 
 	@Then("I get back to the login page")
 	public void i_get_back_to_the_login_page() {
 		PageFactory.getForgetPasswordPage().clickGetBackToHomePageBtn();
+		String actualTitle = DriverFactory.getDriver().findElement(PageFactory.getForgetPasswordPage().checkLoginPageTitle()).getText();
+		String expectedTitle = "Customer Login";
+		Assert.assertEquals(actualTitle, expectedTitle);
 	}
 	
 	@When("In email input field, enter a invalid registered email address")

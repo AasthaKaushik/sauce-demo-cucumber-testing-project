@@ -16,6 +16,7 @@ public class ForgetPasswordPage {
 	private final By GET_BACK_TO_HOMEPAGE_BTN = By.linkText("Login");
 	private final By FORGET_PASSWORD_TITLE = By.xpath("//h1[@class='accounts-title border bottom']");
 	private final By VERIFY_TEXT = By.xpath("//p[contains(text(),'We will send you an email to reset your password.')]");
+	private final By LOGIN_PAGE_TITLE = By.xpath("//h1[contains(text(),'Customer Login')]");
 	
 	public void clickForgetPasswordBtn() {
 		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(20));
@@ -37,6 +38,10 @@ public class ForgetPasswordPage {
 	
 	public By checkForgetPageTitle() {
 		return FORGET_PASSWORD_TITLE;
+	}
+	
+	public By checkLoginPageTitle() {
+		return LOGIN_PAGE_TITLE;
 	}
 
 	public void clearEmailField() {
