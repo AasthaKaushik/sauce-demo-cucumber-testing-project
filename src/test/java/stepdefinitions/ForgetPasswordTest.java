@@ -1,13 +1,6 @@
 
 package stepdefinitions;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import factory.DriverFactory;
@@ -23,7 +16,6 @@ public class ForgetPasswordTest {
 		DriverFactory.getDriver().get("https://sauce-demo.myshopify.com/account/login");
 		PageFactory.getLoginPage().enterUsername("dhruv@gmail.com");
 		PageFactory.getLoginPage().enterPassword("dhruv12345678");
-//		PageFactory.getLoginPage().clickSignInBtn();
 	}
 
 	@When("I clicks on the Forgot your password")
@@ -34,7 +26,6 @@ public class ForgetPasswordTest {
 	@Then("I should be redirected to the password reset page")
 	public void i_should_be_redirected_to_the_password_reset_page() {
 		PageFactory.getForgetPasswordPage().enterEmail("dhruv.aggarwal@gspann.com");
-		//PageFactory.getForgetPasswordPage().clickSubmitBtn();
 	}
 
 	@Then("I am on the password reset page")
@@ -47,7 +38,6 @@ public class ForgetPasswordTest {
 	@When("In email input field, enter a valid registered email address")
 	public void in_email_input_field_enter_a_valid_registered_email_address() {
 		PageFactory.getForgetPasswordPage().clearEmailField();
-//		PageFactory.getLoginPage().enterUsername("dhruv.aggarwal@gmail.com");
 	}
 
 	@Then("I get back to the login page")
