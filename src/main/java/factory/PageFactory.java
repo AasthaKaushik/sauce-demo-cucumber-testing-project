@@ -9,6 +9,7 @@ public class PageFactory {
 	static ThreadLocal<ForgetPasswordPage> ForgetPasswordPageTL = new ThreadLocal<ForgetPasswordPage>();
 	static ThreadLocal<FooterPage> FooterPageTL = new ThreadLocal<FooterPage>();
 	static ThreadLocal<BlogsPage> BlogsPageTL = new ThreadLocal<BlogsPage>();
+	private static ThreadLocal<CartPage> CartPageTL = new ThreadLocal<>();
 
 	public static LoginPage getLoginPage() {
 		if (LoginPageTL.get() == null) {
@@ -50,5 +51,12 @@ public class PageFactory {
 			BlogsPageTL.set(new BlogsPage());
 		}
 		return BlogsPageTL.get();
+	}
+
+	public static CartPage getCartPage() {
+		if (CartPageTL.get() == null) {
+			CartPageTL.set(new CartPage());
+		}
+		return CartPageTL.get();
 	}
 }
