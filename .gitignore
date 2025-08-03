@@ -2,3 +2,6 @@
 target/
 .classpath
 .project
+allure-results/
+test-output/
+pom.xml
