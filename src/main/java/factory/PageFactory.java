@@ -1,49 +1,71 @@
 package factory;
 
-import pages.AboutUsPage;
-import pages.CatalogPage;
-import pages.CreateAccountPage;
-import pages.ForgetPasswordPage;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.ProductDetailPage;
-import pages.SearchBar;
+import pages.*;
 
 public class PageFactory {
-	 static ThreadLocal<LoginPage> LoginPageTL = new ThreadLocal<LoginPage>();
-	    static ThreadLocal<CreateAccountPage> CreateAccountTL = new ThreadLocal<CreateAccountPage>();
-	    static ThreadLocal<HomePage> HomePageTL = new ThreadLocal<HomePage>();
-	    static ThreadLocal<ForgetPasswordPage> ForgetPasswordPageTL = new ThreadLocal<ForgetPasswordPage>();
-	    static ThreadLocal<SearchBar> SearchBarTL = new ThreadLocal<SearchBar>();
-	    static ThreadLocal<AboutUsPage> AboutUsPageTL = new ThreadLocal<AboutUsPage>();
-	    static ThreadLocal<ProductDetailPage> ProductDetailPageTL = new ThreadLocal<ProductDetailPage>();
+	static ThreadLocal<LoginPage> LoginPageTL = new ThreadLocal<LoginPage>();
+	static ThreadLocal<CreateAccountPage> CreateAccountTL = new ThreadLocal<CreateAccountPage>();
+	static ThreadLocal<HomePage> HomePageTL = new ThreadLocal<HomePage>();
+	static ThreadLocal<ForgetPasswordPage> ForgetPasswordPageTL = new ThreadLocal<ForgetPasswordPage>();
+	static ThreadLocal<FooterPage> FooterPageTL = new ThreadLocal<FooterPage>();
+	static ThreadLocal<BlogsPage> BlogsPageTL = new ThreadLocal<BlogsPage>();
+	private static ThreadLocal<CartPage> CartPageTL = new ThreadLocal<>();
+  static ThreadLocal<SearchBar> SearchBarTL = new ThreadLocal<SearchBar>();
+	 static ThreadLocal<AboutUsPage> AboutUsPageTL = new ThreadLocal<AboutUsPage>();
+   static ThreadLocal<ProductDetailPage> ProductDetailPageTL = new ThreadLocal<ProductDetailPage>();
 	    static ThreadLocal<CatalogPage> CatalogPageTL = new ThreadLocal<CatalogPage>();
-	    
-	    public static LoginPage getLoginPage() {
-	        if(LoginPageTL.get()==null) {
-	            LoginPageTL.set(new LoginPage());
-	        }
-	        return LoginPageTL.get();
-	    }
 
-	    public static ForgetPasswordPage getForgetPasswordPage() {
-	        if(ForgetPasswordPageTL.get()==null) {
-	        	ForgetPasswordPageTL.set(new ForgetPasswordPage());
-	        }
-	        return ForgetPasswordPageTL.get();
-	    }
-	    public static CreateAccountPage getCreateAccountPage() {
-	        if(CreateAccountTL.get()==null) {
-	            CreateAccountTL.set(new CreateAccountPage());
-	        }
-	        return CreateAccountTL.get();
-	    }
-	    public static HomePage getHomePage() {
-	        if(HomePageTL.get()==null) {
-	            HomePageTL.set(new HomePage());
-	        }
-	        return HomePageTL.get();
-	    }
+
+	public static LoginPage getLoginPage() {
+		if (LoginPageTL.get() == null) {
+			LoginPageTL.set(new LoginPage());
+		}
+		return LoginPageTL.get();
+	}
+
+	public static ForgetPasswordPage getForgetPasswordPage() {
+		if (ForgetPasswordPageTL.get() == null) {
+			ForgetPasswordPageTL.set(new ForgetPasswordPage());
+		}
+		return ForgetPasswordPageTL.get();
+	}
+
+	public static CreateAccountPage getCreateAccountPage() {
+		if (CreateAccountTL.get() == null) {
+			CreateAccountTL.set(new CreateAccountPage());
+		}
+		return CreateAccountTL.get();
+	}
+
+	public static HomePage getHomePage() {
+		if (HomePageTL.get() == null) {
+			HomePageTL.set(new HomePage());
+		}
+		return HomePageTL.get();
+	}
+
+	public static FooterPage getFooterPage() {
+		if (FooterPageTL.get() == null) {
+			FooterPageTL.set(new FooterPage());
+		}
+		return FooterPageTL.get();
+	}
+
+	public static BlogsPage getBlogsPage() {
+		if (BlogsPageTL.get() == null) {
+			BlogsPageTL.set(new BlogsPage());
+		}
+		return BlogsPageTL.get();
+	}
+
+	public static CartPage getCartPage() {
+		if (CartPageTL.get() == null) {
+			CartPageTL.set(new CartPage());
+		}
+		return CartPageTL.get();
+	}
+  
+  
 	    public static SearchBar getSearchBar() {
 	    	if(SearchBarTL.get()==null) {
 	    		SearchBarTL.set(new SearchBar());
@@ -71,5 +93,4 @@ public class PageFactory {
 	    	}
 	    	return CatalogPageTL.get();
 	    }
-
 }

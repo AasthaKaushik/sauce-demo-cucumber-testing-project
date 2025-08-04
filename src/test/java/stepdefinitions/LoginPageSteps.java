@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import factory.DriverFactory;
 import factory.PageFactory;
@@ -23,7 +24,21 @@ public class LoginPageSteps {
         PageFactory.getLoginPage().enterUsername("aastha@abc.com");
         PageFactory.getLoginPage().enterPassword("Aastha123");
     }
-
+    @When("I enter an invalid email or password")
+    public void i_enter_an_invalid_email_or_password() {
+        PageFactory.getLoginPage().enterUsername("wrong@abc.com");
+        PageFactory.getLoginPage().enterPassword("wrongpass");
+    }
+    @When("I leave both email and password fields empty")
+    public void i_leave_both_email_and_password_fields_empty() {
+        PageFactory.getLoginPage().enterUsername("");
+        PageFactory.getLoginPage().enterPassword("");
+    }
+    @When("I enter an email without '@' and a valid password")
+    public void i_enter_an_email_without_and_a_valid_password() {
+        PageFactory.getLoginPage().enterUsername("invalidemail.com");
+        PageFactory.getLoginPage().enterPassword("Aastha123");
+    }
     @When("I click on the {string} button")
     public void i_click_on_the_button(String string) {
         PageFactory.getLoginPage().clickSignInBtn();
@@ -39,5 +54,17 @@ public class LoginPageSteps {
         if (!actualUrl.equals(expectedUrl)) {
             throw new AssertionError("Expected: " + expectedUrl + ", but got: " + actualUrl);
         }
+    }
+    @Then("I should see an error message indicating invalid credentials")
+    public void i_should_see_an_error_message_indicating_invalid_credentials() {
+    	String actualFieldError =DriverFactory.getDriver().findElement(PageFactory.getLoginPage().getEmptyOrInvalidFieldsError()).getText();
+        String expectedFieldsError = "Incorrect email or password.";
+        Assert.assertEquals(actualFieldError,expectedFieldsError);
+    }
+    @Then("I should see an error message")
+    public void i_should_see_an_error_message() {
+    	String actualFieldError =DriverFactory.getDriver().findElement(PageFactory.getLoginPage().getEmptyOrInvalidFieldsError()).getText();
+        String expectedFieldsError = "Incorrect email or password.";
+        Assert.assertEquals(expectedFieldsError, actualFieldError);
     }
 }

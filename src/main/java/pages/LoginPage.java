@@ -8,6 +8,7 @@ public class LoginPage {
 	private final By USERNAME_FIELD = By.id("customer_email");
     private final By PASSWORD_FIELD = By.id("customer_password");
     private final By SIGN_IN_BTN = By.xpath("//input[@value='Sign In']");
+    private final By EMPTY_OR_INVALID_FIELDS_ERROR = By.xpath("//li[contains(text(),'Incorrect email or password.')]");
 
     public void enterUsername(String email) {
         DriverFactory.getDriver().findElement(USERNAME_FIELD).sendKeys(email);
@@ -18,5 +19,7 @@ public class LoginPage {
     public void clickSignInBtn() {
         DriverFactory.getDriver().findElement(SIGN_IN_BTN).click();
     }
-
+    public By getEmptyOrInvalidFieldsError(){
+        return EMPTY_OR_INVALID_FIELDS_ERROR;
+    }
 }
