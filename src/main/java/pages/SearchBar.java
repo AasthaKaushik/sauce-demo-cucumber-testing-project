@@ -12,7 +12,8 @@ public class SearchBar {
 
 	private final By SEARCH_FIELD = By.xpath("//form//input[@id='search-field']");
 	private final By SEARCH_ICON_BTN = By.xpath("//form//input[@id='search-submit']");
-	private final By SEARCHED_ITEM_TXT = By.xpath("//a//h3[contains(text(),'Grey jacket')]");
+	private final By SEARCHED_ITEM_TXT = By.xpath("//div//span[contains(text(),'jacket')]");
+	private final By SEARCHED_RANDOM_ITEM_TXT = By.xpath("//div//span[contains(text(),'xyz')]");
 	
 	public void checkSearchField() {	
 		DriverFactory.getDriver().findElement(SEARCH_FIELD).isDisplayed();
@@ -33,5 +34,9 @@ public class SearchBar {
 	
 	public By searchedItemTxt() {
 		return SEARCHED_ITEM_TXT;
+	}
+	
+	public By verifyRandomItemTxt() {
+		return SEARCHED_RANDOM_ITEM_TXT;
 	}
 }

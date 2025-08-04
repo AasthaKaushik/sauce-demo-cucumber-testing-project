@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import org.testng.Assert;
+
 import factory.DriverFactory;
 import factory.PageFactory;
 import io.cucumber.java.en.Given;
@@ -21,6 +23,9 @@ public class CatalogNavigationTest {
 	@Then("I should be redirected to the Catalog page")
 	public void i_should_be_redirected_to_the_catalog_page() {
 	    PageFactory.getCatalogPage().verifyCatalogPageTitle();
+	    String actualTitle = DriverFactory.getDriver().findElement(PageFactory.getCatalogPage().verifyCatalogPageTitle()).getText();
+	    String expectedTitle = "Products";
+	    Assert.assertEquals(actualTitle, expectedTitle);
 	}
 
 }
