@@ -20,5 +20,6 @@ public class Hooks {
     @After
     public void tearDown() {
         DriverFactory.quitDriver();
+        
     }
 }

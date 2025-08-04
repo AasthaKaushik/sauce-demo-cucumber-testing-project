@@ -12,8 +12,11 @@ public class DriverFactory {
         return driver.get();
     }
     public static void quitDriver(){
+    	if(driver.get()!= null) {
         driver.get().quit();
         driver.remove();
+    }
+PageFactory.resetpages();
     }
 }
 

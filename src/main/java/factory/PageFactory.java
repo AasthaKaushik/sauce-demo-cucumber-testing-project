@@ -21,18 +21,23 @@ public class PageFactory {
 
     public static CartPage getCartPage() {
         if (cartPageTL.get() == null) {
-            cartPageTL.set(new CartPage());
-        }
+            cartPageTL.set(new CartPage(DriverFactory.getDriver()));     }
+        
         return cartPageTL.get();
     }
 
     public static HomePage getHomePage() {
         WebDriver driver = DriverFactory.getDriver();
         if (homePageTL.get() == null) {
-            homePageTL.set(new HomePage(driver));
+            homePageTL.set(new HomePage(DriverFactory.getDriver()));
         }
         return homePageTL.get();
     }
 
+    public static void resetpages()
+    {
+    	cartPageTL.remove();
+    	homePageTL.remove();
+    }
 	
 }
