@@ -10,6 +10,11 @@ public class PageFactory {
 	static ThreadLocal<FooterPage> FooterPageTL = new ThreadLocal<FooterPage>();
 	static ThreadLocal<BlogsPage> BlogsPageTL = new ThreadLocal<BlogsPage>();
 	private static ThreadLocal<CartPage> CartPageTL = new ThreadLocal<>();
+  static ThreadLocal<SearchBar> SearchBarTL = new ThreadLocal<SearchBar>();
+	 static ThreadLocal<AboutUsPage> AboutUsPageTL = new ThreadLocal<AboutUsPage>();
+   static ThreadLocal<ProductDetailPage> ProductDetailPageTL = new ThreadLocal<ProductDetailPage>();
+	    static ThreadLocal<CatalogPage> CatalogPageTL = new ThreadLocal<CatalogPage>();
+
 
 	public static LoginPage getLoginPage() {
 		if (LoginPageTL.get() == null) {
@@ -59,4 +64,33 @@ public class PageFactory {
 		}
 		return CartPageTL.get();
 	}
+  
+  
+	    public static SearchBar getSearchBar() {
+	    	if(SearchBarTL.get()==null) {
+	    		SearchBarTL.set(new SearchBar());
+	    	}
+	    	return SearchBarTL.get();
+	    }
+	    
+	    public static AboutUsPage getAboutUsPage() {
+	    	if(AboutUsPageTL.get()==null) {
+	    		AboutUsPageTL.set(new AboutUsPage());
+	    	}
+	    	return AboutUsPageTL.get();
+	    }
+	    
+	    public static ProductDetailPage getProductDetailPage() {
+	    	if(ProductDetailPageTL.get()==null) {
+	    		ProductDetailPageTL.set(new ProductDetailPage());
+	    	}
+	    	return ProductDetailPageTL.get();
+	    }
+	    
+	    public static CatalogPage getCatalogPage() {
+	    	if(CatalogPageTL.get()==null) {
+	    		CatalogPageTL.set(new CatalogPage());
+	    	}
+	    	return CatalogPageTL.get();
+	    }
 }
