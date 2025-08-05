@@ -43,17 +43,9 @@ public class SearchBarFuntionalityTest {
 
 	@Then("I should see products related to the keyword jacket")
 	public void i_should_see_products_related_to_the_keyword_jacket() {
-//		String actualItemTxt = DriverFactory.getDriver().findElement(PageFactory.getSearchBar().searchedItemTxt()).getText();
-//	    String expectedtxt = "Grey jacket";
-//	    Assert.assertEquals(actualItemTxt, expectedtxt);
-//		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(10));
-//		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(
-//		    PageFactory.getSearchBar().searchedItemTxt()));
-//
-//		String actualText = element.getText().trim();
-//		String productName = rawText.split("£")[0].trim(); 
-//		String expectedTxt = "Grey jacket";
-//		Assert.assertEquals(itemName, expectedTxt);
+		String actualItemTxt = DriverFactory.getDriver().findElement(PageFactory.getSearchBar().searchedItemTxt()).getText();
+	    String expectedtxt = "jacket";
+	    Assert.assertEquals(actualItemTxt, expectedtxt);
 	}
 
 	@When("I enter an invalid or random keyword like {string} in the search bar")
@@ -68,7 +60,9 @@ public class SearchBarFuntionalityTest {
 
 	@Then("system should display message like No results found")
 	public void system_should_display_message_like_no_results_found() {
-	   // YAHA ASSERTION DAALNI HAIIII.........................................
+		String actualItemTxt = DriverFactory.getDriver().findElement(PageFactory.getSearchBar().verifyRandomItemTxt()).getText();
+	    String expectedtxt = "xyz";
+	    Assert.assertEquals(actualItemTxt, expectedtxt);
 	}
 
 }
