@@ -7,9 +7,9 @@ import factory.DriverFactory;
 
 public class BlogsPage {
 
-    private final By BLOG_LINKTEXT = By.linkText("Blog");
-    private final By BLOG_PAGEBODY = By.xpath("//body[@id='news']");
-    private final By FIRST_POSTTEXT = By.xpath("//*[contains(text(),'First Post')]");
+    private final By BLOG_LINK_TEXT = By.linkText("Blog");
+    private final By BLOG_PAGE_BODY = By.xpath("//body[@id='news']");
+    private final By FIRST_POST_TEXT = By.xpath("//*[contains(text(),'First Post')]");
     private final By BLOG_CONTENT = By.xpath("//*[@class=\"wysiwyg\"]/p[1]");
 
     private By POST_DATE_TEXT = By.xpath("//*[@class=\"two columns alpha date\"]/span");
@@ -23,15 +23,15 @@ public class BlogsPage {
 
     //1
     public void clickBlogLink() {
-        DriverFactory.getDriver().findElement(BLOG_LINKTEXT).click();
+        DriverFactory.getDriver().findElement(BLOG_LINK_TEXT).click();
     }
 
     public boolean BlogHomepageVisible() {
-        return DriverFactory.getDriver().findElement(BLOG_PAGEBODY).isDisplayed();
+        return DriverFactory.getDriver().findElement(BLOG_PAGE_BODY).isDisplayed();
     }
 
     public String getFirstPostTitle() {
-        return DriverFactory.getDriver().findElement(FIRST_POSTTEXT).getText();
+        return DriverFactory.getDriver().findElement(FIRST_POST_TEXT).getText();
     }
 
 
@@ -41,7 +41,7 @@ public class BlogsPage {
 //	}
 
     public void clickFirstPost() {
-        DriverFactory.getDriver().findElement(FIRST_POSTTEXT).click();
+        DriverFactory.getDriver().findElement(FIRST_POST_TEXT).click();
     }
 
     public String getBlogContentText() {
