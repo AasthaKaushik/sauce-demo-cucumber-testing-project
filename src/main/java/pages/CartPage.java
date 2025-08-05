@@ -106,11 +106,26 @@ public class CartPage {
     }
 
     public void clickRemoveButton() {
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//p[@class='spinner']")));
+            wait.until(ExpectedConditions.elementToBeClickable(REMOVE_BUTTON)).click();
+        }catch(Exception e) {
+            driver.navigate().refresh();
+            driver.findElement(CART_ICON).click();
+        }
+
         wait.until(ExpectedConditions.elementToBeClickable(REMOVE_BUTTON)).click();
     }
 
 
+
     public void clickCheckoutButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_BUTTON)).click();
+        try {
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//p[@class='spinner']")));
+            wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_BUTTON)).click();
+        }catch(Exception e) {
+            driver.navigate().refresh();
+            driver.findElement(CART_ICON).click();
+        }
     }
 }

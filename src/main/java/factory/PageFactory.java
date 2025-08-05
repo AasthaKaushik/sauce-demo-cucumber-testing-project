@@ -64,6 +64,12 @@ public class PageFactory {
 		}
 		return CartPageTL.get();
 	}
+
+	public static void resetpages()
+	{
+		CartPageTL.remove();
+		HomePageTL.remove();
+	}
   
   
 	    public static SearchBar getSearchBar() {
