@@ -9,7 +9,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
 public class Hooks {
-	@Before
+    @Before
     public void setup() {
         DriverFactory.getDriver().manage().window().maximize();
         ChromeOptions options = new ChromeOptions();
