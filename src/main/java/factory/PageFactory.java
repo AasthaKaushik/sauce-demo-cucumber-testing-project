@@ -1,5 +1,6 @@
 package factory;
 
+import pages.CatalogPage;
 import pages.CreateAccountPage;
 import pages.FooterPage;
 import pages.ForgetPasswordPage;
@@ -12,6 +13,8 @@ public class PageFactory {
 	    static ThreadLocal<HomePage> HomePageTL = new ThreadLocal<HomePage>();
 	    static ThreadLocal<ForgetPasswordPage> ForgetPasswordPageTL = new ThreadLocal<ForgetPasswordPage>();
 	    static ThreadLocal<FooterPage> FooterPageTL = new ThreadLocal<FooterPage>();
+		static ThreadLocal<CatalogPage> CatalogPageTL = new ThreadLocal<>();
+
 
 
 	    public static LoginPage getLoginPage() {
@@ -45,5 +48,11 @@ public class PageFactory {
 	        }
 	        return FooterPageTL.get();
 	    }
+	    public static CatalogPage getCatalogPage() {
+			if (CatalogPageTL.get() == null) {
+				CatalogPageTL.set(new CatalogPage());
+			}
+			return CatalogPageTL.get();
+		}
 
 }
