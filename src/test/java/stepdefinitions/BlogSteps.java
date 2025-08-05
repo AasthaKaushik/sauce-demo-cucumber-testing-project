@@ -12,7 +12,6 @@ public class BlogSteps {
 
 	@Given("User is on the homepage")
 	public void User_is_on_the_homepage() {
-
 		DriverFactory.getDriver().get("https://sauce-demo.myshopify.com");
 
 	}
@@ -68,7 +67,7 @@ public class BlogSteps {
 	@Given("I am on the page")
 	public void i_am_on_the_page() {
 
-		DriverFactory.getDriver().get("https://sauce-demo.myshopify.com/blogs/news/12832805-first-post");
+		DriverFactory.getDriver().get("https://sauce-demo.myshopify.com/blogs/news");
 	}
 
 	@When("I click the ecommerce template link")
@@ -78,8 +77,8 @@ public class BlogSteps {
 
 	@Then("Shopify’s template page should open in a new tab")
 	public void shopifys_templagetab_should_open() {
-		Assert.assertEquals(PageFactory.getBlogsPage().getNewTabTemplateUrl(),
-				"https://www.shopify.com/blog/best-ecommerce-sites");
+		Assert.assertEquals(PageFactory.getBlogsPage().getNewTabTemplateTitle(),
+				"Ecommerce Website Design: Examples and Tips (2025) - Shopify");
 	}
 
 //5scenario
@@ -98,7 +97,7 @@ public class BlogSteps {
 
 		String pagetitle = DriverFactory.getDriver().getTitle();
 		Assert.assertEquals(pagetitle, "9 Best Ecommerce Hosting Solutions in 2025 - Shopify");
-		System.out.println(pagetitle);
+
 	}
 
 //6 scenario
@@ -155,6 +154,63 @@ public class BlogSteps {
 
 		String back = DriverFactory.getDriver().getCurrentUrl();
 		Assert.assertEquals(back, "https://sauce-demo.myshopify.com/blogs/news");
+	}
+
+// 9 scenario
+	@Given("I am on the blog post firstpage")
+	public void i_am_on_the_blog_post_firstpage() {
+		DriverFactory.getDriver().get("https://sauce-demo.myshopify.com/blogs/news/12832805-first-post");
+	}
+
+	@When("I click the Save button")
+	public void i_click_the_save_button() {
+		PageFactory.getBlogsPage().clickSaveButton();
+	}
+
+	@Then("I should be redirected to the Pinterest share page")
+	public void i_should_be_redirected_to_the_pinterest_share_page() {
+		String url = DriverFactory.getDriver().getCurrentUrl();
+		Assert.assertEquals(url, "https://sauce-demo.myshopify.com/blogs/news/12832805-first-post");
+	}
+
+// 10 scenario
+
+	@Given("I am on the About Us page")
+	public void i_am_on_the_about_us_page() {
+		DriverFactory.getDriver().get("https://sauce-demo.myshopify.com/blogs/news");
+	}
+
+	@When("I click on the Shopify link")
+	public void i_click_on_the_shopify_link() {
+		PageFactory.getBlogsPage().clickShopifyLink();
+
+	}
+
+	@Then("I should be redirected to the Shopify website")
+	public void i_should_be_redirected_to_the_shopify_website() {
+		String shopifyurl = DriverFactory.getDriver().getCurrentUrl();
+		Assert.assertEquals(shopifyurl, "https://www.shopify.com/in");
+
+	}
+
+//11 scenario
+
+	@Given("I am on the About Us page of the website")
+	public void i_am_on_the_about_us_page_of_the_website() {
+		DriverFactory.getDriver().get("https://sauce-demo.myshopify.com/blogs/news");
+
+	}
+
+	@When("I click on the sell online link")
+	public void i_click_on_the_sell_online_link() {
+		PageFactory.getBlogsPage().clickSellOnlineLink();
+
+	}
+
+	@Then("I should be redirected to the correct Shopify help or blog page")
+	public void i_should_be_redirected_to_the_correct_shopify_help_or_blog_page() {
+		String sellonlineurl = DriverFactory.getDriver().getCurrentUrl();
+		Assert.assertEquals(sellonlineurl, "https://www.shopify.com/in/online");
 	}
 
 }

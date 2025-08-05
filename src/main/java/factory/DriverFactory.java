@@ -8,6 +8,7 @@ public class DriverFactory {
     public static WebDriver getDriver(){
         if(driver.get() == null){
             driver.set(new ChromeDriver());
+           
         }
         return driver.get();
     }

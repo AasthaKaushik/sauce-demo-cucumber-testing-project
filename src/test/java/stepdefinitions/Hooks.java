@@ -13,8 +13,9 @@ public class Hooks {
     public void setup() {
         DriverFactory.getDriver().manage().window().maximize();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--incognito");
-        DriverFactory.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        options.addArguments("--headless=new");
+        DriverFactory.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        
     }
 
     @After
