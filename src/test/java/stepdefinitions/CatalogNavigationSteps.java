@@ -16,19 +16,19 @@ public class CatalogNavigationSteps {
 	@When("I click on the catalog")
 	@When("I click on the catalog link")
 	public void clickCatalogLink() {
-		PageFactory.getCatalogPage().clickCatalogLink();
+		PageFactory.getCatalogProductPage().clickCatalogLink();
 	}
 
 	@Then("I should be on catalog page")
 	@And("I am on catalog page")
 	public void verifyCatalogPage() {
-		Assert.assertTrue(PageFactory.getCatalogPage().isOnCatalogPage(), "Not on catalog page.");
+		Assert.assertTrue(PageFactory.getCatalogProductPage().isOnCatalogPage(), "Not on catalog page.");
 	}
 
 	@Then("The following products should be listed on the catalog page:")
 	public void verifyProducts(DataTable dataTable) {
 		List<String> expectedProducts = dataTable.asList();
-		Assert.assertTrue(PageFactory.getCatalogPage().areAllExpectedProductsListed(expectedProducts),
+		Assert.assertTrue(PageFactory.getCatalogProductPage().areAllExpectedProductsListed(expectedProducts),
 				"Some expected products are missing from the catalog.");
 	}
 
