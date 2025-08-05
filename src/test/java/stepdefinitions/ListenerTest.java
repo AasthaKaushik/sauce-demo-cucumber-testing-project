@@ -14,21 +14,16 @@ import java.io.IOException;
 public class ListenerTest implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
-        String className = result.getTestClass().getName(); // full package.class
+        Object currentClass = result.getInstance();
+        WebDriver driver = DriverFactory.getDriver();  // cast to actual test class
         String methodName = result.getMethod().getMethodName();
-        // Filter only Login or CreateAccount related failures
-        if (className.contains("Login") || className.contains("CreateAccount")) {
-            WebDriver driver = DriverFactory.getDriver();
-            File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            try {
-                File dest = new File(System.getProperty("user.dir") +
-                        "/screenshots/" + methodName + ".png");
-                FileUtils.copyFile(src, dest);
-                System.out.println("📸 Screenshot taken for: " + methodName);
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(src, new File(System.getProperty("user.dir")
+                    + "/screenshots/" + methodName + ".png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
 
+        }
     }
 }
