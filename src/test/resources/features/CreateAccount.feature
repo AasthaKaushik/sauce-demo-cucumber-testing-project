@@ -1,4 +1,6 @@
 Feature: Account Creation
+
+  @CreateAccount
   Scenario: Create account with valid details
     Given I am on the Create Account page
     When I enter "abcdas" in the First Name field
@@ -8,13 +10,13 @@ Feature: Account Creation
     And I click the Create button
     Then I should be redirected to the homepage with the Log out link visible
 
-
+  @CreateAccount
   Scenario: Submit empty Create Account form
     Given I am on the Create Account page
     When I click the Create button without entering any details
     Then I should see error messages for email and password field
 
-
+  @CreateAccount
   Scenario: Enter invalid email format during account creation
     Given I am on the Create Account page
     When I enter "Aastha" in the First Name field
