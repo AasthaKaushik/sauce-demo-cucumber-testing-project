@@ -22,7 +22,7 @@ public class BreadcrumbNavigationToHomePageSteps {
 	   }
 	   @Then("I should be redirected to the Home page")
 	   public void i_should_be_redirected_to_the_home_page() {
-	       wait.until(ExpectedConditions.urlToBe("https://sauce-demo.myshopify.com/")); // Replace with actual home URL
+	       wait.until(ExpectedConditions.urlToBe("https://sauce-demo.myshopify.com/"));
 	       String currentUrl = DriverFactory.getDriver().getCurrentUrl();
 	       Assert.assertEquals("https://sauce-demo.myshopify.com/", currentUrl);
 	   }
