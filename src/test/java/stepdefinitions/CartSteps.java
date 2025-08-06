@@ -176,4 +176,20 @@ public class CartSteps {
     public void user_should_be_redirected_to_the_homepage() {
         assertTrue(DriverFactory.getDriver().getCurrentUrl().contains("sauce-demo.myshopify.com"));
     }
+    //Scenario 10: Verify checkout button from product page without adding items to cart
+
+    @When("user clicks on the nior Jacket image")
+    public void user_clicks_noir_jacket_image() {
+        PageFactory.getCartPage().clickNoirJacketImage();
+
+    }
+    @And("click on checkout button")
+    public void user_clicks_on_checkout_button_on_cartpage() {
+        PageFactory.getCartPage().clickCheckoutButtonProductpage();
+    }
+
+    @Then("user is redirected to the homepage")
+    public void user_on_homepage() {
+        assertTrue(DriverFactory.getDriver().getCurrentUrl().contains("sauce-demo.myshopify.com"));
+    }
 }
