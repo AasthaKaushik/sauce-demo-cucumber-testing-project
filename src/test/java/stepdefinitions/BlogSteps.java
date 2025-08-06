@@ -157,4 +157,60 @@ public class BlogSteps {
         Assert.assertEquals(back, "https://sauce-demo.myshopify.com/blogs/news");
     }
 
+    // 9 scenario
+    @Given("I am on the blog post firstpage")
+    public void i_am_on_the_blog_post_firstpage() {
+        DriverFactory.getDriver().get("https://sauce-demo.myshopify.com/blogs/news/12832805-first-post");
+    }
+
+    @When("I click the Save button")
+    public void i_click_the_save_button() {
+        PageFactory.getBlogsPage().clickSaveButton();
+    }
+
+    @Then("I should be redirected to the Pinterest share page")
+    public void i_should_be_redirected_to_the_pinterest_share_page() {
+        String url = DriverFactory.getDriver().getCurrentUrl();
+        Assert.assertEquals(url, "https://sauce-demo.myshopify.com/blogs/news/12832805-first-post");
+    }
+
+// 10 scenario
+
+    @Given("I am on the Blogs About Us page")
+    public void i_am_on_the_blogs_about_us_page() {
+        DriverFactory.getDriver().get("https://sauce-demo.myshopify.com/blogs/news");
+    }
+
+    @When("I click on the Shopify link")
+    public void i_click_on_the_shopify_link() {
+        PageFactory.getBlogsPage().clickShopifyLink();
+
+    }
+
+    @Then("I should be redirected to the Shopify website")
+    public void i_should_be_redirected_to_the_shopify_website() {
+        String shopifyurl = DriverFactory.getDriver().getCurrentUrl();
+        Assert.assertEquals(shopifyurl, "https://www.shopify.com/in");
+
+    }
+
+//11 scenario
+
+    @Given("I am on the About Us page of the website")
+    public void i_am_on_the_about_us_page_of_the_website() {
+        DriverFactory.getDriver().get("https://sauce-demo.myshopify.com/blogs/news");
+
+    }
+
+    @When("I click on the sell online link")
+    public void i_click_on_the_sell_online_link() {
+        PageFactory.getBlogsPage().clickSellOnlineLink();
+
+    }
+
+    @Then("I should be redirected to the correct Shopify help or blog page")
+    public void i_should_be_redirected_to_the_correct_shopify_help_or_blog_page() {
+        String sellonlineurl = DriverFactory.getDriver().getCurrentUrl();
+        Assert.assertEquals(sellonlineurl, "https://www.shopify.com/in/online");
+    }
 }
