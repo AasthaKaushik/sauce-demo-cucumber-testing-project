@@ -45,3 +45,8 @@ Feature: Cart functionality
     And user clicks on the CartIcon
     When  user clicks on the Checkout button
     Then user should be redirected to the homepage
+
+  Scenario: Verify checkout button from product page without adding items to cart
+    When user clicks on the nior Jacket image
+    And click on checkout button
+    Then user is redirected to the homepage

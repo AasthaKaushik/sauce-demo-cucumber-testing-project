@@ -29,7 +29,7 @@ public class CartPage {
     private final By CART_ITEM_COUNT = By.xpath("//span[@class='count cart-target']");
     private final By REMOVE_BUTTON = By.linkText("Remove");
     private final By CHECKOUT_BUTTON = By.xpath("//input[@value=\"Check Out\"][1]");
-
+    private final By CHECKOUT_BUTTON_PRODUCT_PAGE = By.xpath("//a[@class=\"checkout\"]");
 
     public void goToAllProductsPage() {
         driver.get("https://sauce-demo.myshopify.com/collections/all");
@@ -127,5 +127,8 @@ public class CartPage {
             driver.navigate().refresh();
             driver.findElement(CART_ICON).click();
         }
+    }
+    public void clickCheckoutButtonProductpage() {
+        wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_BUTTON_PRODUCT_PAGE)).click();
     }
 }

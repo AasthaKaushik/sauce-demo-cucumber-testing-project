@@ -40,3 +40,18 @@ Feature: Shopify Blog Functionality
     Given I am on the BlogFirstpostpage
     When I click an external link
     Then it should open in a new browser tab
+
+  Scenario: Verify clicking Save redirects to Pinterest share page
+    Given I am on the blog post firstpage
+    When I click the Save button
+    Then I should be redirected to the Pinterest share page
+
+  Scenario: Verify "Shopify" link redirects to Shopify website
+    Given I am on the Blogs About Us page
+    When I click on the Shopify link
+    Then I should be redirected to the Shopify website
+
+  Scenario: Verify "sell online" link redirects correctly
+    Given I am on the About Us page of the website
+    When I click on the sell online link
+    Then I should be redirected to the correct Shopify help or blog page
