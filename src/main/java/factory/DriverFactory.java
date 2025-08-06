@@ -16,6 +16,6 @@ public class DriverFactory {
             driver.get().quit();
             driver.remove();
         }
-        PageFactory.resetpages();
+        PageFactory.resetPages();
     }
 }

@@ -67,7 +67,7 @@ public class PageFactory {
 		return CartPageTL.get();
 	}
 
-	public static void resetpages() {
+	public static void resetPages() {
 		CartPageTL.remove();
 		HomePageTL.remove();
 	}
