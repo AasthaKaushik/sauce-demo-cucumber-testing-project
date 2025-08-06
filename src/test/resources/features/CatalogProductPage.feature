@@ -10,3 +10,8 @@ Feature: Shopify catalog Functionality
     Given I am on the catalog page
     When I click on a product marked SOLD OUT
     Then there should be SOLDOUT button must be disable
+
+  Scenario: Verify correct product information is displayed on the product detail page
+    Given I am on the Products Catalog page
+    When I click on the product Bronze Sandals
+    Then the price should be display of product sandals

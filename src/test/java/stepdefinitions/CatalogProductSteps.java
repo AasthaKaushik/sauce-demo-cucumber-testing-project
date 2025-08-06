@@ -44,5 +44,22 @@ public class CatalogProductSteps {
         WebElement soldOutButton = PageFactory.getCatalogProductPage().getSoldOutDisable();
         Assert.assertFalse(soldOutButton.isEnabled());
     }
+    @Given("I am on the Products Catalog page")
+    public void i_am_on_the_products_catalog_page() {
+        DriverFactory.getDriver().get("https://sauce-demo.myshopify.com/collections/all");
 
+    }
+
+    @When("I click on the product Bronze Sandals")
+    public void i_click_on_the_product_bronze_sandals() {
+        PageFactory.getCatalogProductPage().clickOnSandals();
+
+    }
+
+    @Then("the price should be display of product sandals")
+    public void the_price_should_be_display_of_product_sandals() {
+        String sandalsprice = PageFactory.getCatalogProductPage().getBrownSandalsPrice();
+        Assert.assertEquals(sandalsprice, "£39.99");
+
+    }
 }
